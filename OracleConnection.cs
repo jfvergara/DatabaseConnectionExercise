@@ -2,7 +2,7 @@
 {
     public class OracleConnection : DbConnection        
     {
-        private bool oracleConnection;
+        private bool _oracleConnection;
 
         public OracleConnection(string connectionString)
             : base(connectionString)
@@ -11,12 +11,12 @@
         }
         public override void OpenConnection(string connectionString)            
         {
-            if (isValid == true && oracleConnection == false)
+            if (_isValid == true && _oracleConnection == false)
             {
                 System.Console.WriteLine("Oracle connection open!");
-                oracleConnection = true;
+                _oracleConnection = true;
             }
-            else if(isValid == true && oracleConnection == true)
+            else if(_isValid == true && _oracleConnection == true)
             {
                 System.Console.WriteLine("The Oracle connection is already open");
             }
@@ -24,12 +24,12 @@
         }
         public override void CloseConnection()
         {
-            if (isValid == true && oracleConnection == true)
+            if (_isValid == true && _oracleConnection == true)
             {
                 System.Console.WriteLine("Oracle connection closed");
-                oracleConnection = false;
+                _oracleConnection = false;
             }
-            else if (isValid == true && oracleConnection == false)
+            else if (_isValid == true && _oracleConnection == false)
             {
                 System.Console.WriteLine("There is no a Oracle connection to close");
             }
