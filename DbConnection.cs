@@ -4,6 +4,7 @@ namespace DatabaseConnectionExercise
 {
     public abstract class DbConnection
     {
+        public bool isValid;
         public string ConnectionString { get; set; }
         public TimeSpan Timeout { get; set; }
 
@@ -17,10 +18,11 @@ namespace DatabaseConnectionExercise
             else
             {
                 ConnectionString = connectionString;
+                isValid = true;
             }
         }
 
-        public abstract string OpenConnection(string connectionString);
-        public abstract string CloseConnection();
+        public abstract void OpenConnection(string connectionString);
+        public abstract void CloseConnection();
     }
 }

@@ -11,8 +11,15 @@ namespace DatabaseConnectionExercise
         {
             string stringConnection = "ThisIsAValidConnectionString";
             var oracle = new OracleConnection(stringConnection);
-            System.Console.WriteLine(oracle.OpenConnection(stringConnection));
-            System.Console.WriteLine(oracle.CloseConnection());
+            oracle.OpenConnection(stringConnection);
+
+            System.Console.WriteLine("-------------------------------------");
+
+            
+            var sql = new OracleConnection(stringConnection);
+            sql.OpenConnection(stringConnection);
+            sql.OpenConnection(stringConnection);
+            sql.CloseConnection();
         }
     }
 }
