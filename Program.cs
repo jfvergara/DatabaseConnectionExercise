@@ -9,17 +9,25 @@ namespace DatabaseConnectionExercise
     {
         static void Main(string[] args)
         {
+            //
+            //Below you can find different scenearios:
+            //  
+
             string stringConnection = "ThisIsAValidConnectionString";
-            var oracle = new OracleConnection(stringConnection);
-            oracle.OpenConnection(stringConnection);
+            string stringConnectionNoValid = "";
+            //1- When the all the parameters are valid
+            var dbCommand1 = new DbCommand(stringConnection, "delete", "oracle");
+            System.Console.WriteLine("-------------------------");
 
-            System.Console.WriteLine("-------------------------------------");
+            //2- When the command is not valid
+            var dbCommand2 = new DbCommand(stringConnection, "deleteNoValid", "oracle");
+            System.Console.WriteLine("-------------------------");
 
-            
-            var sql = new OracleConnection(stringConnection);
-            sql.OpenConnection(stringConnection);
-            sql.OpenConnection(stringConnection);
-            sql.CloseConnection();
+            //3- When the istrinConnection is not valid
+            var dbCommand3 = new DbCommand(stringConnectionNoValid, "delete", "oracle");
+            System.Console.WriteLine("-------------------------");
+
+
         }
     }
 }
